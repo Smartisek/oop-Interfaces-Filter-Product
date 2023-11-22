@@ -41,6 +41,17 @@ public class ProductContainer
 		return null; 	// return null if not found. Must check for this case in caller.
 	}
 
+	public Product findFirstProductPrice(double price){
+		for(Product product : this.productList){
+			if(product.getPrice() == product.getPrice()){
+				return	product;
+			}
+		}
+		return	null;
+	}
+
+
+
 	public List<Product> findProductsByStarRating(int rating)
 	{
 		List<Product> returnList = new ArrayList<>();

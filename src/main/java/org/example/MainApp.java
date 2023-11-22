@@ -42,7 +42,11 @@ public class MainApp {
 		else
 			System.out.println("Products with star rating of 4 :" + list);
 
-
+		Product product1 = productContainer.findFirstProductPrice(50.00);
+		if(product==null)
+			System.out.println("No product was found with that price.");
+		else
+			System.out.println("Found product: " + product1);
 		// Retrieve Products from ProductContainer by passing a IFilter_Product type
 		// object into the container's filterBy() method.
 		// Note that the filters that we use are created outside the ProductContainer class.
@@ -66,10 +70,16 @@ public class MainApp {
 		// and will match products that have that have that star rating.
 		// Use your filter by passing an instance of it into the container's filterBy() method, and store
 		// and output the results.  (Set star rating to 3)
+		System.out.println("Filter by star rating...");
+		List<Product> starList = productContainer.filterBy(new Filter_ProductStarRating(3));
+		System.out.println(starList);
 
 		//TODO
 		// Write a filter class called Filter_ProductMinRating that can be initialized with a star rating,
 		// and will match any product that has that star rating or a greater star rating.
+		System.out.println("Filter by min star rating...");
+		List<Product> minStarList = productContainer.filterBy(new Filter_ProductMinRating(2));
+		System.out.println(minStarList);
 
 	}
 
